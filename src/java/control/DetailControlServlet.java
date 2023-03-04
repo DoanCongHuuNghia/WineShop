@@ -1,6 +1,7 @@
 package control;
 
 import dao.DAO;
+import entity.Category;
 import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -8,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 public class DetailControlServlet extends HttpServlet {
    
@@ -17,7 +19,9 @@ public class DetailControlServlet extends HttpServlet {
         String id = request.getParameter("pid");
         DAO dao = new DAO();
         Product p = dao.getProductByID(id);
+        
         request.setAttribute("detail", p);
+        
         request.getRequestDispatcher("Detail.jsp").forward(request, response);
     } 
 

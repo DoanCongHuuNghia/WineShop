@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 
 public class Connections {
     private final String serverName = "DESKTOP-DUPHV77\\SQLEXPRESS";
-    private final String dbName = "SparklingShop-Project";
+    private final String dbName = "SparklingShop";
     private final String portNumber = "1433";
     private final String instance = "";
     private final String userID = "sa";

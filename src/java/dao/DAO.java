@@ -2,6 +2,7 @@
 package dao;
 
 import context.Connections;
+import entity.Account;
 import entity.Category;
 import entity.Product;
 import java.sql.Connection;
@@ -115,7 +116,8 @@ public class DAO {
                         rs.getInt(4),
                         rs.getString(5),
                         rs.getString(8),
-                        rs.getString(9)));
+                        rs.getString(9),
+                        rs.getString(6)));
             }
         } catch (Exception e) {
         }
@@ -167,6 +169,90 @@ public class DAO {
         return list;
     }
     
+    public Account Login(String user, String pass){
+        String query = "select * from ACCOUNT\n"
+                + "where accusername = ?\n"
+                + "and accpassword = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                return new Account(rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getString(6), 
+                        rs.getString(7), 
+                        rs.getInt(8), 
+                        rs.getInt(9));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
+    public Account CheckAccountExist(String user){
+        String query = "select * from ACCOUNT\n"
+                + "where accusername = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, user);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                return new Account(rs.getString(2), 
+                        rs.getString(3), 
+                        rs.getString(4), 
+                        rs.getString(5), 
+                        rs.getString(6), 
+                        rs.getString(7), 
+                        rs.getInt(8), 
+                        rs.getInt(9));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
+    public void Signup(String user, String pass, String name, String address, String phonenumber, String age){
+        String query = "insert into ACCOUNT\n"
+                + "values\n"
+                + "	(?, ?, ?, ?, ?, ?, 0, 0);";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, user);
+            ps.setString(2, pass);
+            ps.setString(3, name);
+            ps.setString(4, address);
+            ps.setString(5, phonenumber);
+            ps.setString(6, age);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    public Account ResetPassword(String user, String phonenumber){
+        String query = "select distinct accpassword from ACCOUNT\n"
+                + "where accusername = ?\n"
+                + "and accphonenumber = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, user);
+            ps.setString(2, phonenumber);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                return new Account(rs.getString(1));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+    
     public static void main(String[] args) {
         DAO dao = new DAO();
 //        List<Product> list = dao.getAllProduct();
@@ -174,7 +260,8 @@ public class DAO {
 //        
 //        List<Category> listC = dao.getAllCategory();
 //        System.out.println(listC);
-        List<Product> listLP = dao.getAllLatestProduct();
-        System.out.println(listLP);
+//        List<Product> listLP = dao.getAllLatestProduct();
+//        System.out.println(listLP);
+
     }
 }

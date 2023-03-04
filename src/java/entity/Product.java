@@ -5,7 +5,7 @@ public class Product {
     private String name, image;
     private int price;
     private String description, quantity, orgin;
-
+    private String cateid;
     public Product() {
     }
 
@@ -17,6 +17,17 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.orgin = orgin;
+    }
+
+    public Product(int id, String name, String image, int price, String description, String quantity, String orgin, String cateid) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.orgin = orgin;
+        this.cateid = cateid;
     }
 
     public int getId() {
@@ -73,6 +84,14 @@ public class Product {
 
     public void setOrgin(String orgin) {
         this.orgin = orgin;
+    }
+
+    public String getCateid() {
+        return cateid;
+    }
+
+    public void setCateid(String cateid) {
+        this.cateid = cateid;
     }
 
     @Override

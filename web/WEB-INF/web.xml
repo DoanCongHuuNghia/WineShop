@@ -20,6 +20,18 @@
         <servlet-name>LoginControlServlet</servlet-name>
         <servlet-class>control.LoginControlServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SignupControlServlet</servlet-name>
+        <servlet-class>control.SignupControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutControlServlet</servlet-name>
+        <servlet-class>control.LogoutControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordControlServlet</servlet-name>
+        <servlet-class>control.ResetPasswordControlServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControlServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -39,6 +51,18 @@
     <servlet-mapping>
         <servlet-name>LoginControlServlet</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SignupControlServlet</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutControlServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordControlServlet</servlet-name>
+        <url-pattern>/resetpassword</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
