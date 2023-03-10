@@ -14,7 +14,7 @@
                 <a class="navbar-sm-brand text-light text-decoration-none mx-3 fw-bold" href="#">Manager Account</a>
                 </c:if>
                 <c:if test="${sessionScope.acc.isSeller == 1}">
-                <a class="navbar-sm-brand text-light text-decoration-none fw-bold" href="#">Manager Product</a>
+                <a class="navbar-sm-brand text-light text-decoration-none fw-bold" href="manager">Manager Product</a>
                 </c:if>
                 <c:if test="${sessionScope.acc != null}">
                 <a class="navbar-sm-brand text-light text-decoration-none mx-3 fw-bold" href="#">Hello ${sessionScope.acc.name}</a>
@@ -27,10 +27,10 @@
                     <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
                     <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
                     <c:if test="${sessionScope.acc != null}">
-                    <a class="navbar-sm-brand text-light text-decoration-none mx-3" href="logout">Logout</a>     
+                    <a class="navbar-sm-brand text-light text-decoration-none mx-3" href="logout"><i class="fas fa-user-check"></i> Logout</a>     
                     </c:if>
                     <c:if test="${sessionScope.acc == null}">
-                    <a class="navbar-sm-brand text-light text-decoration-none mx-3" href="Login.jsp">Login</a>
+                    <a class="navbar-sm-brand text-light text-decoration-none mx-3" href="Login.jsp"><i class="fas fa-user"></i> Login</a>
                     </c:if> 
                 </div>
             </div>          

@@ -53,10 +53,7 @@
                                 <h1 class="h1 text-success"><b>SPARKLING </b>SHOP</h1>
                                 <h3 class="h2">Group 5 - PRJ301 - SE17A06</h3>
                                 <p>
-                                    SPARKLING SHOP 
-<!--                                    <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Freepik Stories</a>,
-                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
-                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>.-->
+                                    Một trong những cửa hàng rượu trực tuyến hàng đầu Việt Nam, được thành lập dựa trên lý tưởng mang đến những loại rượu mạnh nhất với giá tốt nhất.
                                 </p>
                             </div>
                         </div>
@@ -71,11 +68,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Proident occaecat</h1>
-                                <h3 class="h2">Aliquip ex ea commodo consequat</h3>
+                                <h1 class="h1">PRIDE OF SPARKLING SHOP</h1>
+                                <h3 class="h2">Cửa hàng rượu trực tuyến tốt nhất Việt Nam</h3>
                                 <p>
-                                    You are permitted to use this Zay CSS template for your commercial websites. 
-                                    You are <strong>not permitted</strong> to re-distribute the template ZIP file in any kind of template collection websites.
+                                    Sparkling giao rượu yêu thích của bạn trực tiếp đến cửa nhà bạn. Với nhiều lựa chọn các loại rượu mạnh phổ biến và các loại rượu quý hiếm khó tìm, chúng tôi là cửa hàng duy nhất đáp ứng mọi nhu cầu về rượu của bạn. Cho dù bạn đang tìm kiếm rượu whisky, rượu tequila, rượu cognac, rượu mùi, rượu rum, rượu vodka hay bất kỳ loại rượu mạnh nào khác, chúng tôi đều cung cấp cho bạn.
                                 </p>
                             </div>
                         </div>
@@ -90,11 +86,10 @@
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1">Repr in voluptate</h1>
-                                <h3 class="h2">Ullamco laboris nisi ut </h3>
+                                <h1 class="h1">WHAT WE BRING TO CUSTOMERS?</h1>
+                                <h3 class="h2">Đơn đặt hàng công ty & số lượng lớn</h3>
                                 <p>
-                                    We bring you 100% free CSS templates for your websites. 
-                                    If you wish to support TemplateMo, please make a small contribution via PayPal or tell your friends about our website. Thank you.
+                                    Nếu bạn quan tâm đến việc tìm hiểu thêm về cách chúng tôi có thể giúp đáp ứng nhu cầu của công ty hoặc đơn đặt hàng lớn của bạn, chúng tôi rất vui được trò chuyện với bạn. Nhóm của chúng tôi tận tâm tạo ra các gói tùy chỉnh phù hợp với yêu cầu cụ thể của bạn, chắc chắn sẽ làm hài lòng người nhận của bạn
                                 </p>
                             </div>
                         </div>
@@ -150,7 +145,7 @@
                 <c:forEach items="${listLP}" var="i"> 
                 <div class="col-12 col-md-4 mb-4">                
                     <div class="card h-100">
-                        <a href="shop-single.html">
+                        <a href="detail?pid=${i.id}&&cid=${i.cateid}">
                             <img src="${i.image}" class="card-img-top" alt="...">
                         </a>
                         <div class="card-body">
@@ -164,7 +159,7 @@
                                 </li>
                                 <li class="text-muted text-right">${i.price} VND</li>
                             </ul>
-                            <a href="shop-single.html" class="h2 text-decoration-none text-dark">${i.name}</a>
+                            <a href="detail?pid=${i.id}&&cid=${i.cateid}" class="h2 text-decoration-none text-dark">${i.name}</a>
                             <p class="card-text">
                                 ${i.description}
                             </p>

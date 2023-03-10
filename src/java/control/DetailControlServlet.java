@@ -16,12 +16,16 @@ public class DetailControlServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String id = request.getParameter("pid");
+        String id = request.getParameter("pid"); 
+        String cateid = request.getParameter("cid");
         DAO dao = new DAO();
         Product p = dao.getProductByID(id);
+        List<Product> listPBCID = dao.getProductByCategoryID(cateid);
+        List<Category> listC = dao.getAllCategory();
         
         request.setAttribute("detail", p);
-        
+        request.setAttribute("listP", listPBCID);
+        request.setAttribute("listC", listC);
         request.getRequestDispatcher("Detail.jsp").forward(request, response);
     } 
 

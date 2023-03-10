@@ -2,6 +2,7 @@
 package entity;
 
 public class Account {
+    private int id;
     private String username, password, name, address, phonenummber, age;
     private int isAdmin;
     private int isSeller;
@@ -28,6 +29,26 @@ public class Account {
         this.age = age;
         this.isAdmin = isAdmin;
         this.isSeller = isSeller;
+    }
+
+    public Account(int id, String username, String password, String name, String address, String phonenummber, String age, int isAdmin, int isSeller) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.phonenummber = phonenummber;
+        this.age = age;
+        this.isAdmin = isAdmin;
+        this.isSeller = isSeller;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -103,5 +124,11 @@ public class Account {
 //    public String toString() {
 //        return "Account{" + "username=" + username + ", password=" + password + ", name=" + name + ", address=" + address + ", phonenummber=" + phonenummber + ", age=" + age + ", isAdmin=" + isAdmin + ", isSeller=" + isSeller + '}';
 //    }
+
+//    @Override
+//    public String toString() {
+//        return "Account{" + "id=" + id + ", username=" + username + ", password=" + password + ", name=" + name + ", address=" + address + ", phonenummber=" + phonenummber + ", age=" + age + ", isAdmin=" + isAdmin + ", isSeller=" + isSeller + '}';
+//    }
+    
     
 }

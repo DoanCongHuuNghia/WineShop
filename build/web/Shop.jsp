@@ -24,13 +24,6 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
-<!--
-    
-TemplateMo 559 Zay Shop
-
-https://templatemo.com/tm-559-zay-shop
-
--->
 </head>
 
 <body>
@@ -97,13 +90,13 @@ https://templatemo.com/tm-559-zay-shop
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-success text-white" href="Shop-single.jsp"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="Shop-single.jsp"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="detail?pid=${i.id}&&cid=${i.cateid}"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="Shop-single.jsp"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <a href="detail?pid=${i.id}" class="h3 text-decoration-none">${i.name}</a>
+                                <a href="detail?pid=${i.id}&&cid=${i.cateid}" class="h3 text-decoration-none">${i.name}</a>
                                 <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                     <li class="pt-2">
                                         <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
@@ -130,7 +123,7 @@ https://templatemo.com/tm-559-zay-shop
                     </c:forEach>
                     
                 </div>   
-<!--                <div div="row">
+                <div div="row">
                     <ul class="pagination pagination-lg justify-content-end">
                         <li class="page-item disabled">
                             <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
@@ -142,7 +135,7 @@ https://templatemo.com/tm-559-zay-shop
                             <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
                         </li>
                     </ul>
-                </div>-->
+                </div>
             </div>
 
         </div>

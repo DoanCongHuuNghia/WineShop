@@ -32,6 +32,30 @@
         <servlet-name>ResetPasswordControlServlet</servlet-name>
         <servlet-class>control.ResetPasswordControlServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManagerProductControlServlet</servlet-name>
+        <servlet-class>control.ManagerProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductControlServlet</servlet-name>
+        <servlet-class>control.DeleteProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateProductControlServlet</servlet-name>
+        <servlet-class>control.CreateProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryInCreatejspServlet</servlet-name>
+        <servlet-class>control.CategoryInCreatejspServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadProductToUpdateServlet</servlet-name>
+        <servlet-class>control.LoadProductToUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProductControlServlet</servlet-name>
+        <servlet-class>control.UpdateProductControlServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HomeControlServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -63,6 +87,30 @@
     <servlet-mapping>
         <servlet-name>ResetPasswordControlServlet</servlet-name>
         <url-pattern>/resetpassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManagerProductControlServlet</servlet-name>
+        <url-pattern>/manager</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteProductControlServlet</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateProductControlServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryInCreatejspServlet</servlet-name>
+        <url-pattern>/categoryincreatejsp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadProductToUpdateServlet</servlet-name>
+        <url-pattern>/loadproducttoupdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProductControlServlet</servlet-name>
+        <url-pattern>/update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
