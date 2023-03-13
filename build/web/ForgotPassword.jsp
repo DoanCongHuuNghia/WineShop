@@ -18,12 +18,12 @@
     </head>
     <body>
         <div id="logreg-forms">
-            <form action="resetpassword" class="">
+            <form action="forgotpassword" class="">
                 <input name="user" type="text" class="form-control" value="${user}" placeholder="User name" required="" autofocus="">
                     <input name="phonenumber" type="tel" class="form-control" value="${phone}" placeholder="Phonenumber" pattern="[0]{1}[3|5|7|8|9]{1}[0-9]{8}" required autofocus="">
                     <p class="text-danger">${mess} ${mess1}</p>
                     <p class="text-danger">${mess2}</p>
-                    <button class="btn btn-primary btn-block" type="submit">Reset Password</button>
+                    <button class="btn btn-primary btn-block" type="submit">View Password</button>
                     <a class="text-dark" href="Login.jsp" id="cancel_reset"><i class="fas fa-angle-left"></i> Back</a>
             </form>
         </div>

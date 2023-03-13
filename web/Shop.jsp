@@ -91,7 +91,7 @@
                                     <ul class="list-unstyled">
                                         <li><a class="btn btn-success text-white" href="Shop-single.jsp"><i class="far fa-heart"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="detail?pid=${i.id}&&cid=${i.cateid}"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="Shop-single.jsp"><i class="fas fa-cart-plus"></i></a></li>
+                                        <li><a class="btn btn-success text-white mt-2" href="addtocart?pid=${i.id}"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -249,15 +249,6 @@
 
     <!-- Start Footer -->
     <jsp:include page="Footer.jsp"></jsp:include>
-    <div class="col-md-4 pt-5">
-        <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-        <ul class="list-unstyled text-light footer-link-list">
-            <c:forEach items="${listC}" var="i">
-                <li><a class="text-decoration-none" href="category?cid=${i.cid}">${i.cname}</a></li>
-            </c:forEach>                                              
-        </ul>
-    </div>
-    <jsp:include page="Footer2.jsp"></jsp:include>
     <!-- End Footer -->
 
     <!-- Start Script -->

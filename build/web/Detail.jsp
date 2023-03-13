@@ -97,7 +97,7 @@ https://templatemo.com/tm-559-zay-shop
                                 </li>
                             </ul>
 
-                            <!--<form action="" method="GET">-->
+                            <form action="addtocart?pid=${detail.id}" method="post">
                                 <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">
@@ -114,25 +114,26 @@ https://templatemo.com/tm-559-zay-shop
                                         <ul class="list-inline pb-3">
                                             <li class="list-inline-item text-right">
                                                 Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+<!--                                                <input type="number"id="product-quanity" name="amount" value=""/>-->
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                            <li class="list-inline-item">
+                                                <input type="hidden"id="product-quanity" name="amount" value=""/>
+                                                <span class="badge bg-secondary" id="var-value">0</span>
+                                            </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <!--<button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>-->
                                         <a class="btn btn-success btn-lg" href="#">Buy</a>
                                     </div>
                                     <div class="col d-grid">
-                                        <!--<button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>-->
-                                        <a class="btn btn-success btn-lg" href="#">Add To Cart</a>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" >Add To Cart</button>
                                     </div>
                                 </div>
-                            <!--</form>-->
+                            </form>
 
                         </div>
                     </div>
@@ -199,15 +200,6 @@ https://templatemo.com/tm-559-zay-shop
 
     <!-- Start Footer -->
     <jsp:include page="Footer.jsp"></jsp:include>
-    <div class="col-md-4 pt-5">
-        <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-        <ul class="list-unstyled text-light footer-link-list">
-            <c:forEach items="${listC}" var="i">
-                <li><a class="text-decoration-none" href="category?cid=${i.cid}">${i.cname}</a></li>
-            </c:forEach>                                              
-        </ul>
-    </div>
-    <jsp:include page="Footer2.jsp"></jsp:include>
     <!-- End Footer -->
 
     <!-- Start Script -->

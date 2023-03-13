@@ -11,10 +11,10 @@
             </div>
             <div>   
                 <c:if test="${sessionScope.acc.isAdmin == 1}">
-                <a class="navbar-sm-brand text-light text-decoration-none mx-3 fw-bold" href="#">Manager Account</a>
+                <a class="navbar-sm-brand text-light text-decoration-none mx-3 fw-bold" href="#">Admin Manager</a>
                 </c:if>
                 <c:if test="${sessionScope.acc.isSeller == 1}">
-                <a class="navbar-sm-brand text-light text-decoration-none fw-bold" href="manager">Manager Product</a>
+                <a class="navbar-sm-brand text-light text-decoration-none fw-bold" href="manager">Seller Manager</a>
                 </c:if>
                 <c:if test="${sessionScope.acc != null}">
                 <a class="navbar-sm-brand text-light text-decoration-none mx-3 fw-bold" href="#">Hello ${sessionScope.acc.name}</a>

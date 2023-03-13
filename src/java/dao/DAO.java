@@ -2,6 +2,7 @@ package dao;
 
 import context.Connections;
 import entity.Account;
+import entity.Cart;
 import entity.Category;
 import entity.Product;
 import java.sql.Connection;
@@ -279,8 +280,8 @@ public class DAO {
         }
         return list;
     }
-    
-    public void DeleteProduct(String pid){
+
+    public void DeleteProduct(String pid) {
         String query = "delete from PRODUCT\n"
                 + "where pid = ?";
         try {
@@ -291,9 +292,9 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-    
-    public void InsertProduct(String name, String image, String price, 
-    String description, String category, int sid, String quantity, String origin){
+
+    public void InsertProduct(String name, String image, String price,
+            String description, String category, int sid, String quantity, String origin) {
         String query = "insert into PRODUCT\n"
                 + "	values\n"
                 + "		(?, ?, ?, ?, ?, ?, ?, ?);";
@@ -312,9 +313,9 @@ public class DAO {
         } catch (Exception e) {
         }
     }
-    
-    public void UpdateProduct(String name, String image, String price, 
-    String description, String category, String quantity, String origin, String pid){
+
+    public void UpdateProduct(String name, String image, String price,
+            String description, String category, String quantity, String origin, String pid) {
         String query = "update PRODUCT\n"
                 + "set pname = ?,\n"
                 + "pimage = ?,\n"
@@ -340,6 +341,92 @@ public class DAO {
         }
     }
 
+    public List<Cart> getCartByAccID(int accid) {
+        List<Cart> list = new ArrayList<>();
+        String query = "select c.cartid, a.accid, p.pid, p.pname, p.pimage, p.price, c.amount, p.cateid\n"
+                + "from CART c, PRODUCT p, ACCOUNT a\n"
+                + "where c.cusid = a.accid and c.pid = p.pid and a.accid = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, accid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(new Cart(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getInt(8)));
+            }
+        } catch (Exception e) {
+        }
+        return list;
+    }
+
+    public void InsertCart(int pid, int cusid, int amount) {
+        String query = "insert into CART(pid, cusid, amount)\n"
+                + "values (?, ?, ?);";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, pid);
+            ps.setInt(2, cusid);
+            ps.setInt(3, amount);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public Cart CheckCartExist(int pid, int cusid) {
+        String query = "select * from CART\n"
+                + "where pid = ? and cusid = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, pid);
+            ps.setInt(2, cusid);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return new Cart(rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getInt(3),
+                        rs.getInt(4));
+            }
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    public void UpdateAmountCart(int pid, int cusid, int amount) {
+        String query = "update CART\n"
+                + "set amount = ?\n"
+                + "where pid = ? and cusid = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setInt(1, amount);
+            ps.setInt(2, pid);
+            ps.setInt(3, cusid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void RemoveFromCart(String cartid) {
+        String query = "delete from CART\n"
+                + "where cartid = ?";
+        try {
+            con = new Connections().getConnection();
+            ps = con.prepareStatement(query);
+            ps.setString(1, cartid);
+            ps.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public static void main(String[] args) {
         DAO dao = new DAO();
 //        List<Product> list = dao.getAllProduct();
@@ -347,8 +434,13 @@ public class DAO {
 //        
 //        List<Category> listC = dao.getAllCategory();
 //        System.out.println(listC);
-        List<Product> listLP = dao.getProductBySellID(4);
-        System.out.println(listLP);
-
+//        List<Product> listLP = dao.getProductBySellID(4);
+//        System.out.println(listLP);
+        List<Cart> listP = dao.getCartByAccID(4);
+        System.out.println(listP);
+//        Cart cart = dao.CheckCartExist(2, 17);
+//        System.out.println(cart);
+//        Account a = dao.CheckAccountExist("nguyenvtp");
+//        System.out.println(a);
     }
 }

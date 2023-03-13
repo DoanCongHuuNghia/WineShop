@@ -176,15 +176,6 @@
 
     <!-- Start Footer -->
     <jsp:include page="Footer.jsp"></jsp:include>
-    <div class="col-md-4 pt-5">
-        <h2 class="h2 text-light border-bottom pb-3 border-light">Products</h2>
-        <ul class="list-unstyled text-light footer-link-list">
-            <c:forEach items="${listC}" var="i">
-                <li><a class="text-decoration-none" href="category?cid=${i.cid}">${i.cname}</a></li>
-            </c:forEach>                                              
-        </ul>
-    </div>
-    <jsp:include page="Footer2.jsp"></jsp:include>
     <!-- End Footer -->
 
     <!-- Start Script -->

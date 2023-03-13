@@ -1,61 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>HomeControlServlet</servlet-name>
-        <servlet-class>control.HomeControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ShopControlServlet</servlet-name>
-        <servlet-class>control.ShopControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DetailControlServlet</servlet-name>
-        <servlet-class>control.DetailControlServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>SearchControlServlet</servlet-name>
-        <servlet-class>control.SearchControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LoginControlServlet</servlet-name>
-        <servlet-class>control.LoginControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SignupControlServlet</servlet-name>
-        <servlet-class>control.SignupControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>LogoutControlServlet</servlet-name>
-        <servlet-class>control.LogoutControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ResetPasswordControlServlet</servlet-name>
-        <servlet-class>control.ResetPasswordControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ManagerProductControlServlet</servlet-name>
-        <servlet-class>control.ManagerProductControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>DeleteProductControlServlet</servlet-name>
-        <servlet-class>control.DeleteProductControlServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CreateProductControlServlet</servlet-name>
-        <servlet-class>control.CreateProductControlServlet</servlet-class>
+        <servlet-class>controller.SearchControlServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CategoryInCreatejspServlet</servlet-name>
-        <servlet-class>control.CategoryInCreatejspServlet</servlet-class>
+        <servlet-class>controller.CategoryInCreatejspServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HomeControlServlet</servlet-name>
+        <servlet-class>controller.view.HomeControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShopControlServlet</servlet-name>
+        <servlet-class>controller.view.ShopControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DetailControlServlet</servlet-name>
+        <servlet-class>controller.view.DetailControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginControlServlet</servlet-name>
+        <servlet-class>controller.login.LoginControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SignupControlServlet</servlet-name>
+        <servlet-class>controller.login.SignupControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutControlServlet</servlet-name>
+        <servlet-class>controller.login.LogoutControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgotPasswordControlServlet</servlet-name>
+        <servlet-class>controller.login.ForgotPasswordControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManagerProductControlServlet</servlet-name>
+        <servlet-class>controller.seller.ManagerProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteProductControlServlet</servlet-name>
+        <servlet-class>controller.seller.DeleteProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateProductControlServlet</servlet-name>
+        <servlet-class>controller.seller.CreateProductControlServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoadProductToUpdateServlet</servlet-name>
-        <servlet-class>control.LoadProductToUpdateServlet</servlet-class>
+        <servlet-class>controller.seller.LoadProductToUpdateServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateProductControlServlet</servlet-name>
-        <servlet-class>control.UpdateProductControlServlet</servlet-class>
+        <servlet-class>controller.seller.UpdateProductControlServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddToCartControlServlet</servlet-name>
+        <servlet-class>controller.customer.AddToCartControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryInFooter</servlet-name>
+        <servlet-class>controller.CategoryInFooter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowCartControlServlet</servlet-name>
+        <servlet-class>controller.customer.ShowCartControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveFromCart</servlet-name>
+        <servlet-class>controller.customer.RemoveFromCart</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchControlServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryInCreatejspServlet</servlet-name>
+        <url-pattern>/categoryincreatejsp</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeControlServlet</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -67,10 +91,6 @@
     <servlet-mapping>
         <servlet-name>DetailControlServlet</servlet-name>
         <url-pattern>/detail</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>SearchControlServlet</servlet-name>
-        <url-pattern>/search</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginControlServlet</servlet-name>
@@ -85,8 +105,8 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ResetPasswordControlServlet</servlet-name>
-        <url-pattern>/resetpassword</url-pattern>
+        <servlet-name>ForgotPasswordControlServlet</servlet-name>
+        <url-pattern>/forgotpassword</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ManagerProductControlServlet</servlet-name>
@@ -101,20 +121,37 @@
         <url-pattern>/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CategoryInCreatejspServlet</servlet-name>
-        <url-pattern>/categoryincreatejsp</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoadProductToUpdateServlet</servlet-name>
-        <url-pattern>/loadproducttoupdate</url-pattern>
+        <url-pattern>/loadproduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateProductControlServlet</servlet-name>
         <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddToCartControlServlet</servlet-name>
+        <url-pattern>/addtocart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryInFooter</servlet-name>
+        <url-pattern>/CategoryInFooter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowCartControlServlet</servlet-name>
+        <url-pattern>/showcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveFromCart</servlet-name>
+        <url-pattern>/removefromcart</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>
+            home
+        </welcome-file>
+    </welcome-file-list>
 </web-app>

@@ -1,142 +1,198 @@
+<%-- 
+    Document   : Cart
+    Created on : Mar 10, 2023, 9:52:25 PM
+    Author     : DOANCONGHUUNGHIA
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html> 
-    <head> 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html>
+    <head>
+        <title>JSP Page</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="/img/apple-icon.png">
+        <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
         <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-        <!--        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/templatemo.css" rel="stylesheet" type="text/css"/>
-
+        <link href="css/custom.css" rel="stylesheet" type="text/css"/>
 
         <!-- Load fonts style after rendering the layout styles -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
         <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <style>
-            /* Style for the table */
-            .title{
 
+        <style>
+            .container-fluid{
+                margin: 2% auto;
             }
-            table {
-                width: 100%;
-            }
-            th {
-                background-color: #f2f2f2;
-            }
-            tbody tr:hover {
-                background-color: #f5f5f5;
-            }
-            td input[type="number"] {
-                width: 60px;
-                text-align: center;
-            }
-            td:nth-child(4) {
-                font-weight: bold;
-            }
-            /* Style for the cart summary */
-            .cart-summary {
-                border: 1px solid #ccc;
-                padding: 10px;
-                margin-top: 20px;
-            }
-            .cart-summary h3 {
-                margin-top: 0;
-            }
-            .cart-summary table {
-                margin-bottom: 0;
-            }
-            .cart-summary button {
-                margin-top: 10px;
+            a{
+                text-decoration: none;
             }
         </style>
     </head>
-
     <body>
+        <div class="Header">
+            <jsp:include page="TopNav.jsp"></jsp:include>
+            <jsp:include page="Header.jsp"></jsp:include>
+        </div>
+            <!-- Start Content-->
+            <div class="container-fluid">
 
-        <jsp:include page="TopNav.jsp"></jsp:include>
-        <jsp:include page="Header.jsp"></jsp:include>
-
-        <div class="container">
-
-            <h2 class="font-weight-normal pt-5">Shopping Cart</h2>
-            <div class="row">
-                <div class="col-md-8">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Subtotal</th>
-                                <th>Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="media">
-                                        <img src="img/Vodka/Absolut Kurant Vodka.png" class="col-3 p-md-6 mr-3" alt="Product image">
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Product 1</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td id="price">$10.00</td>
-                                <td><input class="quantity-input" type="number" min="1" value="1"></td>
-                                <td class="total" >$10.00</td>
-                                <td class="td-boder"><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="media" >
-                                        <img  src="img/rum/Bacardi Carta Blanca Superior White Rum.jpg" class="col-3 p-md-6 mr-3" alt="Product image" >
-                                        <div class="media-body">
-                                            <h5 class="mt-0">Product 2</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>$20.00</td>
-                                <td><input class="quantity-input" type="number" min="1" value="1"></td>
-                                <td>$20.00</td>
-                                <td class="td-boder"><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-4">
-                    <div class="cart-summary">
-                        <h3>Cart Summary</h3>
-                        <table class="table">
-                            <tbody>
-
-                            <td colspan="3">Total</td>
-                            <td id="total">$0</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">Discount</td>
-                                <td id="discount">0%</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3">Discounted Total</td>
-                                <td id="discounted-total">$0</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Shopping Cart</h4>
+                        </div>
                     </div>
                 </div>
+                <!-- end page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="table-responsive">
+
+                                            <table class="table table-borderless table-centered mb-0">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>Product</th>
+                                                        <th>Price</th>
+                                                        <th>Quantity</th>
+                                                        <th>Total</th>
+                                                        <th style="width: 50px;"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <c:forEach items="${listCP}" var="i">                                                   
+                                                    <tr>
+                                                        <td>
+                                                            <img src="${i.pimage}" alt="contact-img" title="contact-img" class="rounded me-3" height="64">
+                                                            <p class="m-0 d-inline-block align-middle font-16">
+                                                                <a href="detail?pid=${i.pid}&&cid=${i.cateid}" class="text-body">${i.pname}</a>
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            ${i.price} VND
+                                                        </td>
+                                                        <td>
+                                                            <!--<input type="number" min="1" value="${i.amount}" class="form-control" placeholder="Qty" style="width: 90px;">-->                                                          
+                                                <li class="list-inline-item">
+                                                    <button  class="btn btn-success" >
+                                                        <a class="text-white" href="addtocart?pid=${i.pid}&&amount=${i.amount - 1}">-</a>
+                                                    </button>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <input type="hidden"id="product-quanity" name="amount" value=""/>
+                                                    <span class="badge bg-secondary" id="var-value">${i.amount}</span>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <button  class="btn btn-success" >
+                                                        <a class="text-white" href="addtocart?pid=${i.pid}&&amount=${i.amount + 1}">+</a>
+                                                    </button>
+
+                                                </li>
+
+                                                </td>
+                                                <td>
+                                                    ${i.price*i.amount} VND
+                                                </td>
+                                                <td>
+                                                    <a href="removefromcart?cartid=${i.cartid}" onclick="return confirm('Are you sure to delete product!');" class="action-icon"> <i class="fas fa-trash-alt"></i></a>
+                                                </td>
+                                                </tr>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+
+
+                                    </div> <!-- end table-responsive-->
+
+                                    <!-- action buttons-->
+                                    <div class="row mt-4">
+                                        <div class="col-sm-6">
+                                            <a href="shop" class="btn text-muted d-none d-sm-inline-block btn-link fw-semibold">
+                                                <i class="mdi mdi-arrow-left"></i> Continue Shopping </a>
+                                        </div> <!-- end col -->
+                                        <div class="col-sm-6">
+                                            <div class="text-sm-end">
+                                                <a href="apps-ecommerce-checkout.html" class="btn btn-danger">
+                                                    Checkout </a>
+                                            </div>
+                                        </div> <!-- end col -->
+                                    </div> <!-- end row-->
+                                </div>
+                                <!-- end col -->
+
+                                <div class="col-lg-4">
+                                    <div class="border p-3 mt-4 mt-lg-0 rounded">
+                                        <h4 class="header-title mb-3">Thanh Toán</h4>
+
+                                        <div class="table-responsive">
+                                            <table class="table mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Tổng tiền :</td>
+                                                        <td>${total} VNÐ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Giảm giá :</td>
+                                                        <td>${sale} VNÐ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Phí vận chuyển :</td>
+                                                        <td>${ship} VNÐ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>VAT: </td>
+                                                        <td>${VAT} VNÐ</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Thành Tiền :</th>
+                                                        <th>${sum} VNÐ</th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group mt-3">
+                                        <input type="text" class="form-control form-control-light" placeholder="Coupon code" aria-label="Recipient's username">
+                                        <button class="input-group-text btn-light" type="button">Apply</button>
+                                    </div>
+
+                                </div> <!-- end col -->
+
+                            </div> <!-- end row -->
+                        </div> <!-- end card-body-->
+                    </div> <!-- end card-->
+                </div> <!-- end col -->
             </div>
+            <!-- end row -->
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="${pageContext.request.contextPath}/js/script.js" type="text/javascript"></script>
+        <div class="footer">
+            <jsp:include page="Footer.jsp"></jsp:include>  
+        </div>
+
+        <!-- Start Script -->
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        <script src="js/templatemo.js" type="text/javascript"></script>
+
+        <!-- End Script -->
+        <!-- Start Script -->
+        <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+        <script src="js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script src="js/templatemo.js" type="text/javascript"></script>
+        <script src="js/custom.js" type="text/javascript"></script>
+        <!-- End Script -->
+
+
     </body>
 </html>
