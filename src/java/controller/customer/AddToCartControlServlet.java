@@ -31,23 +31,26 @@ public class AddToCartControlServlet extends HttpServlet {
         if(a!=null){
             int accid = a.getId();
             if (id != null) {
-                Product p = dao.getProductByID(id);                
-                if (p != null) {
+                Product p = dao.getProductByID(id);
+                
+                if (p != null && p.getSellid()!=accid) {
                     if (request.getParameter("amount") != null) {
                         amount = Integer.parseInt(request.getParameter("amount"));
                     } else {
                         amount = 1;
                     }                 
                     Cart cart = dao.CheckCartExist(pid, accid);                      
-                    if (cart == null) {
+                    if (cart == null) {                      
                         dao.InsertCart(pid, accid, amount);
                         List<Cart> list = dao.getCartByAccID(accid);
                         request.setAttribute("listCP", list);                         
                     }else{
-                        int newamount = amount;
-                        dao.UpdateAmountCart(pid, accid, newamount);
-                        List<Cart> list = dao.getCartByAccID(accid);
-                        request.setAttribute("listCP", list);
+                        int newamount = amount + cart.getAmount();
+                        if( newamount > Integer.parseInt(p.getQuantity())){
+                            dao.UpdateAmountCart(pid, accid, Integer.parseInt(p.getQuantity()));
+                        }else{
+                            dao.UpdateAmountCart(pid, accid, newamount);                          
+                        }
                     }                          
                 }
                 int total = 0;
@@ -60,6 +63,9 @@ public class AddToCartControlServlet extends HttpServlet {
                 request.setAttribute("ship", (5 * total)/100);
                 request.setAttribute("VAT", total/10);
                 request.setAttribute("sum", total + (5*total)/100 + total/10);
+                request.setAttribute("listCP", list);
+//                response.sendRedirect("shop");
+                
                 request.getRequestDispatcher("Cart.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Cart.jsp").forward(request, response);
@@ -92,7 +98,7 @@ public class AddToCartControlServlet extends HttpServlet {
             int accid = a.getId();
             if (id != null) {
                 Product p = dao.getProductByID(id);                
-                if (p != null) {
+                if (p != null && p.getSellid()!=accid) {
                     if (request.getParameter("amount") != null) {
                         amount = Integer.parseInt(request.getParameter("amount"));
                     } else {
@@ -105,9 +111,11 @@ public class AddToCartControlServlet extends HttpServlet {
                         request.setAttribute("listCP", list);                         
                     }else{
                         int newamount = amount + cart.getAmount();
-                        dao.UpdateAmountCart(pid, accid, newamount);
-                        List<Cart> list = dao.getCartByAccID(accid);
-                        request.setAttribute("listCP", list);
+                        if( newamount > Integer.parseInt(p.getQuantity())){
+                            dao.UpdateAmountCart(pid, accid, Integer.parseInt(p.getQuantity()));                            
+                        }else{
+                            dao.UpdateAmountCart(pid, accid, newamount);                         
+                        }                      
                     }                          
 
                 }
@@ -122,7 +130,9 @@ public class AddToCartControlServlet extends HttpServlet {
                 request.setAttribute("ship", (5 * total)/100);
                 request.setAttribute("VAT", total/10);
                 request.setAttribute("sum", total + (5*total)/100 + total/10);
-                request.getRequestDispatcher("Cart.jsp").forward(request, response);
+                request.setAttribute("listCP", list);
+                response.sendRedirect("shop");
+//                request.getRequestDispatcher("Cart.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Cart.jsp").forward(request, response);
             }

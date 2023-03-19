@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>Sparkling Shop - Product Detail Page</title>
+    <title>Sparkling Shop - Product Detail</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,15 +50,22 @@ https://templatemo.com/tm-559-zay-shop
         <div class="container pb-5">
             <div class="row">
                 <div class="col-lg-5 mt-5">
+                    
                     <div class="card mb-3">
+                    <c:if test="${sessionScope.acc.id == detail.sellid}">
+                        <p class="text-danger text-center m-0">ĐÂY LÀ SẢN PHẨM CỦA BẠN.</p>
+                    </c:if>
                         <img class="card-img img-fluid" src="${detail.image}" alt="Card image cap" id="product-detail">
                     </div>
                 </div>
                 <!-- col end -->
                 <div class="col-lg-7 mt-5">
                     <div class="card">
+                        
                         <div class="card-body">
+                            
                             <h1 class="h2">${detail.name}</h1>
+                            
                             
                             <ul class="list-inline">
                                 <li class="list-inline-item">
@@ -117,9 +124,9 @@ https://templatemo.com/tm-559-zay-shop
 <!--                                                <input type="number"id="product-quanity" name="amount" value=""/>-->
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item">
-                                                <input type="hidden"id="product-quanity" name="amount" value=""/>
-                                                <span class="badge bg-secondary" id="var-value">0</span>
+                                            <li class="list-inline-item w-25">
+                                                <input class="w-100" type="number" id="product-quanity" name="amount" value="1" max="${detail.quantity}"/>
+                                                <span class="badge bg-secondary d-none" id="var-value"></span>
                                             </li>
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
                                         </ul>
@@ -127,11 +134,11 @@ https://templatemo.com/tm-559-zay-shop
                                 </div>
                                 <div class="row pb-3">
                                     <div class="col d-grid">
-                                        <a class="btn btn-success btn-lg" href="#">Buy</a>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" >Buy</button>
                                     </div>
-                                    <div class="col d-grid">
+<!--                                    <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" >Add To Cart</button>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </form>
 
@@ -155,6 +162,9 @@ https://templatemo.com/tm-559-zay-shop
                 <c:forEach items="${listP}" var="i">
                         <div class="col-md-4">
                         <div class="card mb-4 product-wap rounded-0">
+                            <c:if test="${sessionScope.acc.id == i.sellid}">
+                                <p class="text-danger text-center m-0">ĐÂY LÀ SẢN PHẨM CỦA BẠN.</p>
+                            </c:if>
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src="${i.image}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">

@@ -6,6 +6,7 @@ public class Cart {
     private String pname, pimage;
     private int price,amount;
     private int cateid;
+    private int quantityproduct;
 
     public Cart() {
     }
@@ -30,18 +31,21 @@ public class Cart {
         this.amount = amount;
         this.cateid = cateid;
     }
-    
-    
 
-    public Cart(int cartid, int pid, String pname, String pimage, int price, int amount) {
+    public Cart(int cartid, int accid, int pid, String pname, String pimage, int price, int amount, int cateid, int quantityproduct) {
         this.cartid = cartid;
+        this.accid = accid;
         this.pid = pid;
         this.pname = pname;
         this.pimage = pimage;
         this.price = price;
         this.amount = amount;
+        this.cateid = cateid;
+        this.quantityproduct = quantityproduct;
     }
+    
 
+    
     public Cart(int cartid, int pid, int accid, int amount) {
         this.cartid = cartid;
         this.accid = accid;
@@ -115,8 +119,10 @@ public class Cart {
 
     @Override
     public String toString() {
-        return "Cart{" + "cartid=" + cartid + ", accid=" + accid + ", pid=" + pid + ", pname=" + pname + ", pimage=" + pimage + ", price=" + price + ", amount=" + amount + ", cateid=" + cateid + '}';
+        return "Cart{" + "cartid=" + cartid + ", accid=" + accid + ", pid=" + pid + ", pname=" + pname + ", pimage=" + pimage + ", price=" + price + ", amount=" + amount + ", cateid=" + cateid + ", quantityproduct=" + quantityproduct + '}';
     }
+
+    
     
 
 

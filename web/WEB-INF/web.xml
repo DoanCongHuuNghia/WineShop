@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>CategoryInCreatejspServlet</servlet-name>
-        <servlet-class>controller.CategoryInCreatejspServlet</servlet-class>
+        <servlet-class>controller.seller.CategoryInCreatejspServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeControlServlet</servlet-name>
@@ -71,6 +71,94 @@
     <servlet>
         <servlet-name>RemoveFromCart</servlet-name>
         <servlet-class>controller.customer.RemoveFromCart</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadInfoCustomerControlServlet</servlet-name>
+        <servlet-class>controller.customer.LoadInfoCustomerControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveAllCartControlServlet</servlet-name>
+        <servlet-class>controller.customer.RemoveAllCartControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAmountCartControlServlet</servlet-name>
+        <servlet-class>controller.customer.UpdateAmountCartControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContactUsControlServlet</servlet-name>
+        <servlet-class>controller.view.ContactUsControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AboutUsControlServlet</servlet-name>
+        <servlet-class>controller.view.AboutUsControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManagerProductControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminManagerProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BillControlServlet</servlet-name>
+        <servlet-class>controller.customer.BillControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveBillControlServlet</servlet-name>
+        <servlet-class>controller.customer.RemoveBillControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteProductControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminCreateProductControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminCreateProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadDataAdminCreateServlet</servlet-name>
+        <servlet-class>controller.admin.LoadDataAdminCreateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadDataAdminUpdateControlServlet</servlet-name>
+        <servlet-class>controller.admin.LoadDataAdminUpdateControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateProductControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateProductControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadInfoControlservlet</servlet-name>
+        <servlet-class>controller.customer.LoadInfoControlservlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManagerAccountControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminManagerAccountControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadAccountToUpdateControlServlet</servlet-name>
+        <servlet-class>controller.admin.LoadAccountToUpdateControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateAccountControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminUpdateAccountControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminManagerSellerCusControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminManagerSellerCusControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteAccountControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminDeleteAccountControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateInfoCusControlServlet</servlet-name>
+        <servlet-class>controller.customer.UpdateInfoCusControlServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminBillControlServlet</servlet-name>
+        <servlet-class>controller.admin.AdminBillControlServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchControlServlet</servlet-name>
@@ -143,6 +231,94 @@
     <servlet-mapping>
         <servlet-name>RemoveFromCart</servlet-name>
         <url-pattern>/removefromcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadInfoCustomerControlServlet</servlet-name>
+        <url-pattern>/loadinfocustomer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveAllCartControlServlet</servlet-name>
+        <url-pattern>/removeallcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAmountCartControlServlet</servlet-name>
+        <url-pattern>/updateamountcart</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactUsControlServlet</servlet-name>
+        <url-pattern>/contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AboutUsControlServlet</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagerProductControlServlet</servlet-name>
+        <url-pattern>/adminmanagerproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BillControlServlet</servlet-name>
+        <url-pattern>/bill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveBillControlServlet</servlet-name>
+        <url-pattern>/removebill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteProductControlServlet</servlet-name>
+        <url-pattern>/admindeleteproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminCreateProductControlServlet</servlet-name>
+        <url-pattern>/admincreateproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadDataAdminCreateServlet</servlet-name>
+        <url-pattern>/loaddataadmincreate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadDataAdminUpdateControlServlet</servlet-name>
+        <url-pattern>/loaddataadminupdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateProductControlServlet</servlet-name>
+        <url-pattern>/adminupdateproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminControlServlet</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadInfoControlservlet</servlet-name>
+        <url-pattern>/loadinfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagerAccountControlServlet</servlet-name>
+        <url-pattern>/adminmanageraccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadAccountToUpdateControlServlet</servlet-name>
+        <url-pattern>/loadaccounttoupdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateAccountControlServlet</servlet-name>
+        <url-pattern>/adminupdateaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminManagerSellerCusControlServlet</servlet-name>
+        <url-pattern>/adminmanagersellercus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteAccountControlServlet</servlet-name>
+        <url-pattern>/admindeleteaccount</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateInfoCusControlServlet</servlet-name>
+        <url-pattern>/updateinfocus</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminBillControlServlet</servlet-name>
+        <url-pattern>/adminbill</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

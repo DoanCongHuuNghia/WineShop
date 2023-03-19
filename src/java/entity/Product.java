@@ -6,6 +6,7 @@ public class Product {
     private int price;
     private String description, quantity, orgin;
     private String cateid;
+    private int sellid;
     public Product() {
     }
 
@@ -17,6 +18,18 @@ public class Product {
         this.description = description;
         this.quantity = quantity;
         this.orgin = orgin;
+    }
+
+    public Product(int id, String name, String image, int price, String description, String quantity, String orgin, String cateid, int sellid) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.orgin = orgin;
+        this.cateid = cateid;
+        this.sellid = sellid;
     }
 
     public Product(int id, String name, String image, int price, String description, String quantity, String orgin, String cateid) {
@@ -94,10 +107,21 @@ public class Product {
         this.cateid = cateid;
     }
 
+    public int getSellid() {
+        return sellid;
+    }
+
+    public void setSellid(int sellid) {
+        this.sellid = sellid;
+    }
+
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", description=" + description + ", quantity=" + quantity + ", orgin=" + orgin + ", cateid=" + cateid + '}';
+        return "Product{" + "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", description=" + description + ", quantity=" + quantity + ", orgin=" + orgin + ", cateid=" + cateid + ", sellid=" + sellid + '}';
     }
+    
+
+
     
     
 }

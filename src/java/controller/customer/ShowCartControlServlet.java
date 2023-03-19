@@ -22,26 +22,26 @@ public class ShowCartControlServlet extends HttpServlet {
         HttpSession session = request.getSession();
         Account a = (Account) session.getAttribute("acc");
         if(a!=null){
-        int id = a.getId();
-        DAO dao = new DAO();
-        List<Cart> list = dao.getCartByAccID(id);
-        List<Category> listC = dao.getAllCategory();
-        
-        
-        int total = 0;
-        for(Cart cart : list){
-            total = total + cart.getAmount() * cart.getPrice();
-        }  
-                
-        request.setAttribute("total", total);
-        request.setAttribute("sale", 0 * total);
-        request.setAttribute("ship", (5 * total)/100);
-        request.setAttribute("VAT", total/10);
-        request.setAttribute("sum", total + (5*total)/100 + total/10);
-        
-        request.setAttribute("listC", listC);
-        request.setAttribute("listCP", list);       
-        request.getRequestDispatcher("Cart.jsp").forward(request, response);
+            int id = a.getId();
+            DAO dao = new DAO();
+            List<Cart> list = dao.getCartByAccID(id);
+            List<Category> listC = dao.getAllCategory();
+
+
+            int total = 0;
+            for(Cart cart : list){
+                total = total + cart.getAmount() * cart.getPrice();
+            }  
+
+            request.setAttribute("total", total);
+            request.setAttribute("sale", 0 * total);
+            request.setAttribute("ship", (5 * total)/100);
+            request.setAttribute("VAT", total/10);
+            request.setAttribute("sum", total + (5*total)/100 + total/10);
+            
+            request.setAttribute("listC", listC);
+            request.setAttribute("listCP", list);       
+            request.getRequestDispatcher("Cart.jsp").forward(request, response);
         }else{
             response.sendRedirect("Login.jsp");
         }

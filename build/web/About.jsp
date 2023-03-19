@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>Sparkling Shop - About Page</title>
+    <title>Sparkling Shop - About</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,13 +46,11 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="col-md-8 text-white">
                     <h1>About Us</h1>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        SparklingShop - Nơi hội tụ những loại rượu ngon nhất. Chúng tôi chuyên nhập khẩu và phân phối rượu mạnh từ khắp nơi trên thế giới. Với sứ mệnh lan tỏa văn hóa uống rượu văn minh, thi vị đến đông đảo người dùng Việt, chúng tôi luôn tuyển chọn kỹ càng những loại rượu có thương hiệu uy tín, nổi tiếng từ nhiều quốc gia - cung cấp cho các đối tác là Doanh nghiệp, Nhà hàng, Người tiêu dùng cá nhân những sản phẩm chất lượng, giá cả tốt nhất.
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/img/about-hero.svg" alt="About Hero">
+                    <img src="img/wine.png" alt="About Hero">
                 </div>
             </div>
         </div>
@@ -65,8 +63,7 @@ https://templatemo.com/tm-559-zay-shop
             <div class="col-lg-6 m-auto">
                 <h1 class="h1">Our Services</h1>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    Lorem ipsum dolor sit amet.
+                    Tất cả những gì bạn cần làm là cung cấp cho chúng tôi thông tin người nhận của bạn và chúng tôi sẽ lo phần còn lại.
                 </p>
             </div>
         </div>
@@ -103,7 +100,7 @@ https://templatemo.com/tm-559-zay-shop
     </section>
     <!-- End Section -->
 
-    <!-- Start Brands -->
+<!--     Start Brands 
     <section class="bg-light py-5">
         <div class="container my-4">
             <div class="row text-center py-3">
@@ -116,21 +113,21 @@ https://templatemo.com/tm-559-zay-shop
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
-                        <!--Controls-->
+                        Controls
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
+                        End Controls
 
-                        <!--Carousel Wrapper-->
+                        Carousel Wrapper
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="templatemo-slide-brand" data-bs-ride="carousel">
-                                <!--Slides-->
+                                Slides
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
-                                    <!--First slide-->
+                                    First slide
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -147,9 +144,9 @@ https://templatemo.com/tm-559-zay-shop
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End First slide-->
+                                    End First slide
 
-                                    <!--Second slide-->
+                                    Second slide
                                     <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -166,9 +163,9 @@ https://templatemo.com/tm-559-zay-shop
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End Second slide-->
+                                    End Second slide
 
-                                    <!--Third slide-->
+                                    Third slide
                                     <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -185,27 +182,27 @@ https://templatemo.com/tm-559-zay-shop
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End Third slide-->
+                                    End Third slide
 
                                 </div>
-                                <!--End Slides-->
+                                End Slides
                             </div>
                         </div>
-                        <!--End Carousel Wrapper-->
+                        End Carousel Wrapper
 
-                        <!--Controls-->
+                        Controls
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#templatemo-slide-brand" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
+                        End Controls
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--End Brands-->
+    End Brands-->
 
 
     <!-- Start Footer -->

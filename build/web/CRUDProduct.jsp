@@ -1,15 +1,11 @@
-<%-- 
-    Document   : student
-    Created on : Feb 17, 2023, 11:52:17 AM
-    Author     : hatha
---%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entity.Account"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Manager Product</title>
+        <title>Sparkling Shop - Manager Product</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
@@ -24,7 +20,15 @@
 
         <!-- Load fonts style after rendering the layout styles -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-        <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>       
+        <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/> 
+        <%
+            session = request.getSession(false);
+            Account a = (Account) session.getAttribute("acc");
+            boolean isLoggedIn = (session != null && session.getAttribute("acc") != null && a.getIsSeller() == 1);
+            if (!isLoggedIn) {
+                response.sendRedirect(request.getContextPath() + "/Login.jsp");
+            }
+        %>
         <style>
             .crudproduct{
                 width: 90%;
@@ -119,10 +123,10 @@
                             <th>Name</th>
                             <th>Image</th>
                             <th>Price</th>
-                            <th>ID Category</th>              
+                            <th>Category</th>              
                             <th>Quantity</th>
                             <th>Origin</th>
-                            <th>Update-Delete</th>
+                            <th>Action</th>
                         </tr>             
                     <c:forEach items="${listP}" var="i">
                         <tr>
@@ -131,11 +135,11 @@
                             <td><img src="${i.image}" alt="image" width="25%" height="25%"></td>
                             <td>${i.price}</td>
                             <td>
-                                <c:if test="${i.cateid == 1}">RUM</c:if>
-                                <c:if test="${i.cateid == 2}">VODKA</c:if>
-                                <c:if test="${i.cateid == 3}">COGNAC</c:if>
-                                <c:if test="${i.cateid == 4}">TEQUILA</c:if>
-                                </td>
+                            <c:if test="${i.cateid == 1}">RUM</c:if>
+                            <c:if test="${i.cateid == 2}">VODKA</c:if>
+                            <c:if test="${i.cateid == 3}">COGNAC</c:if>
+                            <c:if test="${i.cateid == 4}">TEQUILA</c:if>
+                            </td>
                                 <td>${i.quantity}</td>
                             <td>${i.orgin}</td>
                             <td>

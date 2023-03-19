@@ -1,15 +1,9 @@
-<%-- 
-    Document   : Cart
-    Created on : Mar 10, 2023, 9:52:25 PM
-    Author     : DOANCONGHUUNGHIA
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>JSP Page</title>
+        <title>Sparkling Shop - Cart</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +17,13 @@
         <!-- Load fonts style after rendering the layout styles -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
         <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
-
+        <%
+            session = request.getSession(false);
+            boolean isLoggedIn = (session != null && session.getAttribute("acc") != null);
+            if (!isLoggedIn) {
+                response.sendRedirect(request.getContextPath() + "/Login.jsp");
+            }
+        %>
         <style>
             .container-fluid{
                 margin: 2% auto;
@@ -37,7 +37,7 @@
         <div class="Header">
             <jsp:include page="TopNav.jsp"></jsp:include>
             <jsp:include page="Header.jsp"></jsp:include>
-        </div>
+            </div>
             <!-- Start Content-->
             <div class="container-fluid">
 
@@ -46,6 +46,15 @@
                     <div class="col-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Shopping Cart</h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box mt-2 mb-3">
+                            <a href="bill" class="btn btn-danger">
+                                Your Bill </a>
                         </div>
                     </div>
                 </div>
@@ -81,21 +90,17 @@
                                                             ${i.price} VND
                                                         </td>
                                                         <td>
-                                                            <!--<input type="number" min="1" value="${i.amount}" class="form-control" placeholder="Qty" style="width: 90px;">-->                                                          
-                                                <li class="list-inline-item">
-                                                    <button  class="btn btn-success" >
-                                                        <a class="text-white" href="addtocart?pid=${i.pid}&&amount=${i.amount - 1}">-</a>
-                                                    </button>
+
+                                                <li class="list-inline-item">                                              
+                                                    <a class="btn btn-success text-white" href="updateamountcart?pid=${i.pid}&&amount=${i.amount - 1}&&cartid=${i.cartid}">-</a>                                                   
                                                 </li>
                                                 <li class="list-inline-item">
                                                     <input type="hidden"id="product-quanity" name="amount" value=""/>
                                                     <span class="badge bg-secondary" id="var-value">${i.amount}</span>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <button  class="btn btn-success" >
-                                                        <a class="text-white" href="addtocart?pid=${i.pid}&&amount=${i.amount + 1}">+</a>
-                                                    </button>
 
+                                                </li>
+                                                <li class="list-inline-item">                          
+                                                    <a class="btn btn-success text-white" href="updateamountcart?pid=${i.pid}&&amount=${i.amount + 1}">+</a>                                         
                                                 </li>
 
                                                 </td>
@@ -106,6 +111,7 @@
                                                     <a href="removefromcart?cartid=${i.cartid}" onclick="return confirm('Are you sure to delete product!');" class="action-icon"> <i class="fas fa-trash-alt"></i></a>
                                                 </td>
                                                 </tr>
+
                                             </c:forEach>
                                             </tbody>
                                         </table>
@@ -121,7 +127,7 @@
                                         </div> <!-- end col -->
                                         <div class="col-sm-6">
                                             <div class="text-sm-end">
-                                                <a href="apps-ecommerce-checkout.html" class="btn btn-danger">
+                                                <a href="loadinfocustomer" class="btn btn-danger">
                                                     Checkout </a>
                                             </div>
                                         </div> <!-- end col -->
@@ -154,7 +160,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Thành Tiền :</th>
-                                                        <th>${sum} VNÐ</th>
+                                                        <th>${sum} VNÐ</th>                                                     
                                                     </tr>
                                                 </tbody>
                                             </table>

@@ -164,6 +164,9 @@
                                 ${i.description}
                             </p>
                             <p class="text-muted">Số lượng: ${i.quantity}</p>
+                            <c:if test="${sessionScope.acc.id == i.sellid}">
+                                <p class="text-danger text-center">Đây là sản phẩm của bạn.</p>
+                            </c:if>
                         </div>
                     </div>
                 </div>    

@@ -21,8 +21,9 @@ public class ForgotPasswordControlServlet extends HttpServlet {
         String username = request.getParameter("user");
         String phonenumber = request.getParameter("phonenumber");
         DAO dao = new DAO();
-        Account pass = dao.ResetPassword(username, phonenumber);
-        if(pass!=null){
+        Account a = dao.ResetPassword(username, phonenumber);       
+        if(a!=null){
+            String pass = a.getPassword();
             request.setAttribute("mess", "Your password is: ");
             request.setAttribute("mess1", pass);
             request.setAttribute("user", username);

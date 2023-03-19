@@ -23,8 +23,8 @@
                 
             <input name="user" type="text" id="inputEmail" class="form-control" placeholder="Username" required="" autofocus="">
             <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-            <input name="remember" type="checkbox" id="checkbox-1-1" name="remember" value="ON"/>
-            <label for="checkbox-1-1">Remember me</label>
+<!--            <input name="remember" type="checkbox" id="checkbox-1-1" name="remember" value="ON"/>-->
+<!--            <label for="checkbox-1-1">Remember me</label>-->
             <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Sign in</button>
             <a href="ForgotPassword.jsp" id="forgot_pswd" class="text-dark">Forgot password?</a>
             <hr>

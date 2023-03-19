@@ -1,11 +1,6 @@
-<%-- 
-    Document   : addP
-    Created on : Mar 4, 2023, 10:38:35 AM
-    Author     : hatha
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entity.Account"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +18,15 @@
         <!-- Load fonts style after rendering the layout styles -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
         <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Sparkling Shop - Create Product</title>
+        <%
+            session = request.getSession(false);
+            Account a = (Account) session.getAttribute("acc");
+            boolean isLoggedIn = (session != null && session.getAttribute("acc") != null && a.getIsSeller() == 1);
+            if (!isLoggedIn) {
+                response.sendRedirect(request.getContextPath() + "/Login.jsp");
+            }
+        %>
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -143,8 +146,8 @@
                             <c:forEach items="${listC}" var="i">
                                 <option value="${i.cid}">${i.cname}</option>
                             </c:forEach>   
-                        </select>
-                    </div>  
+                            </select>
+                        </div>                 
                     <div class="div">
                         <a class="cancel" href="manager">Cancel</a>
                         <input class="submit" type="submit" value="Add">

@@ -1,6 +1,7 @@
 package controller.view;
 
 import dao.DAO;
+import entity.Account;
 import entity.Category;
 import entity.Product;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
 public class ShopControlServlet extends HttpServlet {
@@ -19,12 +21,9 @@ public class ShopControlServlet extends HttpServlet {
         // get data tu dao
         List<Product> list = dao.getAllProduct();
         List<Category> listC = dao.getAllCategory();
-//        List<Product> listPBC = dao.getAllProductByCategory();
         // set data len jsp
         request.setAttribute("listP", list);
-        request.setAttribute("listC", listC);
-        
-//        request.setAttribute("listPBC", listPBC);
+        request.setAttribute("listC", listC);                 
         request.getRequestDispatcher("Shop.jsp").forward(request, response);
     } 
 

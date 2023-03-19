@@ -10,7 +10,7 @@
 <html lang="en">
 
 <head>
-    <title>Sparkling Shop - Product Listing Page</title>
+    <title>Sparkling Shop - Shop</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,26 +38,9 @@
     <div class="container py-5">
         <div class="row">
 
-            <div class="col-lg-3">
-                <h1 class="h2 pb-4">Categories</h1>
-                <ul class="list-unstyled templatemo-accordion">
-                    <c:forEach items="${listC}" var="i">  
-                    <li class="pb-3">                                             
-                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            ${i.cname}
-                            <!--<i class="fa fa-fw fa-chevron-circle-down mt-1"></i>-->
-                        </a>
-<!--                        <ul class="collapse show list-unstyled pl-3">
-                            <%--<c:forEach items="${listPBC}" var="i">--%> 
-                            <li><a class="text-decoration-none" href="#"></a></li>
-                            <%--</c:forEach>--%>
-                        </ul>                        -->
-                    </li>
-                    </c:forEach>
-                </ul>
-            </div>
+ 
 
-            <div class="col-lg-9">
+            <div class="">
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="list-inline shop-top-menu pb-3 pt-1">
@@ -83,13 +66,16 @@
                 </div>
                 <div class="row">
                     <c:forEach items="${listP}" var="i">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                         <div class="card mb-4 product-wap rounded-0">
+                            <c:if test="${sessionScope.acc.id == i.sellid}">
+                                <p class="text-danger text-center m-0">ĐÂY LÀ SẢN PHẨM CỦA BẠN.</p>
+                            </c:if> 
                             <div class="card rounded-0">
                                 <img class="card-img rounded-0 img-fluid" src="${i.image}">
                                 <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                     <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white" href="Shop-single.jsp"><i class="far fa-heart"></i></a></li>
+                                        <li><a class="btn btn-success text-white" href="#"><i class="far fa-heart"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="detail?pid=${i.id}&&cid=${i.cateid}"><i class="far fa-eye"></i></a></li>
                                         <li><a class="btn btn-success text-white mt-2" href="addtocart?pid=${i.id}"><i class="fas fa-cart-plus"></i></a></li>
                                     </ul>
@@ -142,7 +128,7 @@
     </div>
     <!-- End Content -->
 
-    <!-- Start Brands -->
+<!--     Start Brands 
     <section class="bg-light py-5">
         <div class="container my-4">
             <div class="row text-center py-3">
@@ -155,21 +141,21 @@
                 </div>
                 <div class="col-lg-9 m-auto tempaltemo-carousel">
                     <div class="row d-flex flex-row">
-                        <!--Controls-->
+                        Controls
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
+                        End Controls
 
-                        <!--Carousel Wrapper-->
+                        Carousel Wrapper
                         <div class="col">
                             <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
-                                <!--Slides-->
+                                Slides
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
-                                    <!--First slide-->
+                                    First slide
                                     <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -186,9 +172,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End First slide-->
+                                    End First slide
 
-                                    <!--Second slide-->
+                                    Second slide
                                     <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -205,9 +191,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End Second slide-->
+                                    End Second slide
 
-                                    <!--Third slide-->
+                                    Third slide
                                     <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
@@ -224,27 +210,27 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--End Third slide-->
+                                    End Third slide
 
                                 </div>
-                                <!--End Slides-->
+                                End Slides
                             </div>
                         </div>
-                        <!--End Carousel Wrapper-->
+                        End Carousel Wrapper
 
-                        <!--Controls-->
+                        Controls
                         <div class="col-1 align-self-center">
                             <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
                         </div>
-                        <!--End Controls-->
+                        End Controls
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!--End Brands-->
+    End Brands-->
 
 
     <!-- Start Footer -->

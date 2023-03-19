@@ -1,17 +1,12 @@
-<%-- 
-    Document   : Admin
-    Created on : Mar 9, 2023, 3:01:13 PM
-    Author     : DOANCONGHUUNGHIA
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="entity.Account"%>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sparkling Shop - Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
@@ -23,7 +18,14 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link href="css/fontawesome.min.css" rel="stylesheet" type="text/css"/>
-
+    <%
+        session = request.getSession(false);
+        Account a = (Account) session.getAttribute("acc");
+        boolean isLoggedIn = (session != null && session.getAttribute("acc") != null && a.getIsAdmin() == 1);
+        if (!isLoggedIn) {
+            response.sendRedirect(request.getContextPath() + "/Login.jsp");
+        }
+    %>
     </head>
 
     <body>
@@ -39,17 +41,15 @@
                     <h1 class="h2 pb-4 pt-4"><a class="collapsed d-flex justify-content-between h2 text-decoration-none text-white" href="#">Admin Manager</a></h1>
                     <ul class="list-unstyled templatemo-accordion">
                         <li class="pb-3">                                             
-                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="#">Manager Account</a>
+                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="adminmanageraccount">Manager Account</a>
                         </li>
                         <li class="pb-3">                                             
-                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="#">Manager Product</a>
+                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="adminmanagerproduct">Manager Product</a>
                         </li>
                         <li class="pb-3">                                             
-                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="#">Manager Category</a>
+                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="adminbill">All Bill</a>
                         </li>
-                        <li class="pb-3">                                             
-                            <a class="collapsed d-flex justify-content-between h4 text-decoration-none text-white" href="#">Manager Cart</a>
-                        </li>
+                        
                     </ul>
                 </div>
 
