@@ -62,7 +62,7 @@
                         </div>
                         <div class="">
                             <h5>Password</h5>
-                            <input name="password" value="${account.password}" type="text" class="form-control mb-2" placeholder="Full name" required autofocus="">
+                            <input name="password" value="${decodedpass}" type="text" class="form-control mb-2" placeholder="Full name" required autofocus="">
                         </div>
                         <div class="div">
                             <label class="label">Seller</label>

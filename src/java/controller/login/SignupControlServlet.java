@@ -20,13 +20,14 @@ public class SignupControlServlet extends HttpServlet {
         String password = request.getParameter("pass");
         String repassword = request.getParameter("repass");
         
-        DAO dao = new DAO();
+        DAO dao = new DAO();   
         Account a = dao.CheckAccountExist(username);
         if(!password.equals(repassword)){
             response.sendRedirect("Signup.jsp");
         }else{
             if(a==null){
-                dao.Signup(username, password, fullname, address, phonenumber, age);
+                String encodedpass= dao.getBase64Encoded(password);
+                dao.Signup(username, encodedpass, fullname, address, phonenumber, age);
 //                response.sendRedirect("Login.jsp");
                 request.getRequestDispatcher("login").forward(request, response);
             }else{

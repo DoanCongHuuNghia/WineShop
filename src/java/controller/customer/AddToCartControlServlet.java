@@ -64,9 +64,9 @@ public class AddToCartControlServlet extends HttpServlet {
                 request.setAttribute("VAT", total/10);
                 request.setAttribute("sum", total + (5*total)/100 + total/10);
                 request.setAttribute("listCP", list);
-//                response.sendRedirect("shop");
+                response.sendRedirect("shop");
                 
-                request.getRequestDispatcher("Cart.jsp").forward(request, response);
+//                request.getRequestDispatcher("Cart.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Cart.jsp").forward(request, response);
             }
@@ -131,8 +131,8 @@ public class AddToCartControlServlet extends HttpServlet {
                 request.setAttribute("VAT", total/10);
                 request.setAttribute("sum", total + (5*total)/100 + total/10);
                 request.setAttribute("listCP", list);
-                response.sendRedirect("shop");
-//                request.getRequestDispatcher("Cart.jsp").forward(request, response);
+//                response.sendRedirect("shop");
+                request.getRequestDispatcher("Cart.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("Cart.jsp").forward(request, response);
             }

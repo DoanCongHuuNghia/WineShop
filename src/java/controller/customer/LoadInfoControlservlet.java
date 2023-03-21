@@ -20,6 +20,9 @@ public class LoadInfoControlservlet extends HttpServlet {
             DAO dao = new DAO();
             int id = a.getId();
             Account acc = dao.getAccountByAccID(id);
+            String pass = acc.getPassword();
+            String decodedpass = dao.getBase64Decoded(pass);
+            request.setAttribute("decodedpass", decodedpass);
             request.setAttribute("account", acc);
             request.getRequestDispatcher("Info.jsp").forward(request, response);
         }else{

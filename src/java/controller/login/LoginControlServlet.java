@@ -17,9 +17,11 @@ public class LoginControlServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("user");
         String password = request.getParameter("pass");
+        
 //        String remember = request.getParameter("remember");
         DAO dao = new DAO();
-        Account a = dao.Login(username, password);
+        String encodedpass = dao.getBase64Encoded(password);
+        Account a = dao.Login(username, encodedpass);
         if(a == null){
             request.setAttribute("mess", "Wrong username or password.");
             request.getRequestDispatcher("Login.jsp").forward(request, response);

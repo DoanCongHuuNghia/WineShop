@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class DAO {
@@ -681,6 +682,16 @@ public class DAO {
         } catch (Exception e) {
         }
     }
+    
+    public String getBase64Encoded(String input) {
+    return Base64.getEncoder().encodeToString(input.getBytes());
+    }
+   
+
+    public String getBase64Decoded(String encoded) {
+    byte[] decodedBytes = Base64.getDecoder().decode(encoded);
+    return new String(decodedBytes);
+    }
 
     public static void main(String[] args) {
         DAO dao = new DAO();
@@ -700,9 +711,12 @@ public class DAO {
 //        List<Account> la = dao.getAllAccount();
 //        System.out.println(la);
 //        System.out.println(dao.getNameCategory(20));
-        List<Bill> listb = dao.getAllBill();
-        System.out.println(listb);
+//        List<Bill> listb = dao.getAllBill();
+//        System.out.println(listb);
 //        dao.UpdateAccount("ab", "ac", "nv", "0987656789", "42", "19", "1221");
+//        String a = "987656789";
+//        String b = dao.getBase64Encoded(a);
+//        System.out.println(b);
 
     }
 }

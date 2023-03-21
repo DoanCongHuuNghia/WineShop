@@ -24,6 +24,9 @@ public class LoadAccountToUpdateControlServlet extends HttpServlet {
                 response.sendRedirect("adminmanageraccount");
             }else{
                 Account Account = dao.getAccountByID(accId);
+                String pass = Account.getPassword();
+                String decodedpass = dao.getBase64Decoded(pass);
+                request.setAttribute("decodedpass", decodedpass);
                 request.setAttribute("load", Account);
                 request.getRequestDispatcher("AdminUpdateAccount.jsp").forward(request, response);
             }

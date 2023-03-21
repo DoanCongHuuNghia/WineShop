@@ -47,7 +47,7 @@
 
             .table thead th {
                 padding: 15px;
-                text-align: left;
+                text-align: center;
                 font-weight: bold;
                 background-color: #f8f8f8;
                 border-bottom: 1px solid #ccc;
@@ -56,7 +56,7 @@
             .table tbody td {
                 padding: 15px;
                 border-bottom: 1px solid #ccc;
-                text-align: left;
+                text-align: center;
                 font-weight: bold;
             }
 
@@ -112,12 +112,12 @@
                     <th>Product</th>
                     <th>Quantity</th>
                     <th>Total</th>
-                    <th>Date</th>
+                    <th style="width: 15%;">Date</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>${i.allpname}</td>
+                    <td style="text-align: left">${i.allpname}</td>
                     <td>${i.allamount}</td>
                     <td>${i.allprice}</td>
                     <td>${i.datebuy}</td>

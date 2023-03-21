@@ -24,8 +24,9 @@ public class ForgotPasswordControlServlet extends HttpServlet {
         Account a = dao.ResetPassword(username, phonenumber);       
         if(a!=null){
             String pass = a.getPassword();
+            String decodedpass = dao.getBase64Decoded(pass);
             request.setAttribute("mess", "Your password is: ");
-            request.setAttribute("mess1", pass);
+            request.setAttribute("mess1", decodedpass);
             request.setAttribute("user", username);
             request.setAttribute("phone", phonenumber);
             request.getRequestDispatcher("ForgotPassword.jsp").forward(request, response);

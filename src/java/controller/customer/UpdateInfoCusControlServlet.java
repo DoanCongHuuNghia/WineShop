@@ -27,7 +27,8 @@ public class UpdateInfoCusControlServlet extends HttpServlet {
             String isSeller = request.getParameter("seller");
             String isAdmin = request.getParameter("admin");
             DAO dao = new DAO();
-            dao.UpdateAccount(name, Username, address, phone, age, id, password, isSeller, isAdmin);
+            String encodedpass = dao.getBase64Encoded(password);
+            dao.UpdateAccount(name, Username, address, phone, age, id, encodedpass, isSeller, isAdmin);
             request.getRequestDispatcher("home").forward(request, response);
         } else {
             response.sendRedirect("Login.jsp");

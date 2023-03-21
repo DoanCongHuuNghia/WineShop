@@ -131,7 +131,7 @@
                     </div>
                     <div class="div">
                         <label class="label">Password</label>
-                        <input class="data" value="${load.password}"  name="password" type="text" readonly required="">
+                        <input class="data" value="${decodedpass}"  name="password" type="text" readonly required="">
                     </div>
                     <div class="div">
                         <label class="label">Address</label>
